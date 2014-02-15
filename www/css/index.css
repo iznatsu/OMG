@@ -24,16 +24,16 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#FDE4E4;
-    background-image:linear-gradient(top, #FCCCCC 0%, #FDE4E4 51%);
-    background-image:-webkit-linear-gradient(top, #FCCCCC 0%, #FDE4E4 51%);
-    background-image:-ms-linear-gradient(top, #FCCCCC 0%, #FDE4E4 51%);
+    background-color:#FCCCCC;
+    background-image:linear-gradient(top, #FCCCCC 0%, #FCCCCC 0%);
+    background-image:-webkit-linear-gradient(top, #FCCCCC 0%, #FCCCCC 0%);
+    background-image:-ms-linear-gradient(top, #FCCCCC 0%, #FCCCCC %);
     background-image:-webkit-gradient(
         linear,
         left top,
         left bottom,
         color-stop(0, #FCCCCC),
-        color-stop(0.51, #FDE4E4)
+        color-stop(0.51, #FCCCCC)
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
