@@ -31,12 +31,6 @@ var credity4 = 0;
 var resulty4 = 0;
 var gradey4 = parseFloat(0);
 
-var mygrade = new Array();
-mygrade[0] = gradey1;
-mygrade[1] = gradey2;
-mygrade[2] = gradey3;
-mygrade[3] = gradey4;
-
 function retrieve(coursename, credit, grade, year) {
     var course = document.getElementById(coursename);
     var courseval = course.value;
@@ -69,8 +63,6 @@ function retrieve(coursename, credit, grade, year) {
 		resulty4 += parseFloat(gradeval) * parseFloat(creditval);
 		gradey4 = resulty4 / credity4;
 	}
-	
-	drawChart(mygrade);
 	
 	var innerSpan = document.getElementById("courses").innerHTML
 	document.getElementById('courses').innerHTML = innerSpan + '<p>' + courseval.toUpperCase() +  '</p>';
