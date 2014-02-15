@@ -25,6 +25,7 @@ body {
             <p>Course name : </p>
             <p>Credit : </p>
             <p>Grade : </p>
+            <p>Year : </p>
           <p>&nbsp; </p></th>
           <th width="225" align="left" scope="col">
           <p>&nbsp;            </p>
@@ -35,11 +36,12 @@ body {
               <input type="text" name="credit" id="credit" />
             </p>
             <p>
-              <label for="grade"></label>
               <input type="text" name="grade" id="grade" />
             </p>
             <p>
-              <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade')" />
+            <input type="text" name="year" id="grade" /></p>
+            <p>
+              <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade', 'year')" />
             </p>
           </th>
           <th width="448" align="left" valign="middle" scope="col"><h1>All courses</h1>
@@ -53,7 +55,7 @@ body {
 var tempcredit = 0;
 var tempresult = 0;
 
-function retrieve(coursename, credit, grade) {
+function retrieve(coursename, credit, grade, year) {
     var course = document.getElementById(coursename);
     var courseval = course.value;
 	var credit = document.getElementById(credit);
@@ -81,7 +83,7 @@ function retrieve(coursename, credit, grade) {
 </table>
 
 <map name="Map" id="Map">
-  <area shape="rect" coords="44,215,191,264" href="index.html" />
+  <area shape="rect" coords="44,215,191,264" href="home.html" />
 </map>
 </body>
 </html>
