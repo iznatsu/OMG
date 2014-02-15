@@ -10,6 +10,83 @@ body {
 }
 
 </style>
+
+<script>
+var tempcredit = 0;
+var tempresult = 0;
+
+var credity1 = 0;
+var resulty1 = 0;
+var gradey1 = parseFloat(0);
+
+var credity2 = 0;
+var resulty2 = 0;
+var gradey2 = parseFloat(0);
+
+var credity3 = 0;
+var resulty3 = 0;
+var gradey3 = parseFloat(0);
+
+var credity4 = 0;
+var resulty4 = 0;
+var gradey4 = parseFloat(0);
+
+var mygrade = new Array();
+mygrade[0] = gradey1;
+mygrade[1] = gradey2;
+mygrade[2] = gradey3;
+mygrade[3] = gradey4;
+
+function retrieve(coursename, credit, grade, year) {
+    var course = document.getElementById(coursename);
+    var courseval = course.value;
+	var credit = document.getElementById(credit);
+    var creditval = credit.value;
+	var grade = document.getElementById(grade);
+    var gradeval = grade.value;
+	var result = parseFloat(gradeval) * parseFloat(creditval);
+	tempresult += result;
+	var year = document.getElementById(year);
+	var yearval = year.value;
+	
+	if(parseInt(yearval) == 1){
+		credity1 += parseFloat(creditval);
+		resulty1 += parseFloat(gradeval) * parseFloat(creditval);
+		gradey1 = resulty1 / credity1;
+	}
+	else if(parseInt(yearval) == 2){
+		credity2 += parseFloat(creditval);
+		resulty2 += parseFloat(gradeval) * parseFloat(creditval);
+		gradey2 = resulty2 / credity2;
+	}
+	else if(parseInt(yearval) == 3){
+		credity3 += parseFloat(creditval);
+		resulty3 += parseFloat(gradeval) * parseFloat(creditval);
+		gradey3 = resulty3 / credity3;
+	}
+	else if(parseInt(yearval) == 4){
+		credity4 += parseFloat(creditval);
+		resulty4 += parseFloat(gradeval) * parseFloat(creditval);
+		gradey4 = resulty4 / credity4;
+	}
+	
+	drawChart(mygrade);
+	
+	var innerSpan = document.getElementById("courses").innerHTML
+	document.getElementById('courses').innerHTML = innerSpan + '<p>' + courseval.toUpperCase() +  '</p>';
+	
+	tempcredit += parseInt(creditval);
+	document.getElementById('total').innerHTML = tempcredit;
+	
+	var totalgrade = tempresult / tempcredit;
+	document.getElementById('grades').innerHTML = totalgrade.toFixed(2);
+	
+	document.getElementById('gradey1').innerHTML = gradey1.toFixed(2);
+	document.getElementById('gradey2').innerHTML = gradey2.toFixed(2);
+	document.getElementById('gradey3').innerHTML = gradey3.toFixed(2);
+	document.getElementById('gradey4').innerHTML = gradey4.toFixed(2);
+}
+</script>
 </head>
 
 <body>
@@ -21,60 +98,37 @@ body {
     <th scope="row">
       <table width="1024" border="0">
         <tr>
-          <th width="337" align="right" scope="col"><p>&nbsp;</p>
-            <p>Course name : </p>
-            <p>Credit : </p>
-            <p>Grade : </p>
-            <p>Year : </p>
-          <p>&nbsp; </p></th>
-          <th width="225" align="left" scope="col">
-          <p>&nbsp;            </p>
-          <p>
-            <input type="text" name="coursename" id="coursename" />
-          </p>
-            <p>
+          <th width="439" align="right" scope="col"><p>&nbsp;</p>
+            <p>Course name : 
+              <input type="text" name="coursename" id="coursename" />
+            </p>
+            <p>Credit : 
               <input type="text" name="credit" id="credit" />
             </p>
-            <p>
+            <p>Grade : 
               <input type="text" name="grade" id="grade" />
             </p>
-            <p>
-            <input type="text" name="year" id="grade" /></p>
-            <p>
-              <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade', 'year')" />
+            <p>Year :
+              <input type="text" name="year" id="year" />
             </p>
-          </th>
-          <th width="448" align="left" valign="middle" scope="col"><h1>All courses</h1>
+          <p>
+            <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade', 'year')" />
+          </p></th>
+          <th width="575" align="center" scope="col">
+            <h1>All courses</h1>
             <div id="courses"></div>
             <p>Total credits: </p>
             <div id="total"></div>
             <p>Total grade: </p>
             <div id="grades"></div>
-        
-<script>
-var tempcredit = 0;
-var tempresult = 0;
-
-function retrieve(coursename, credit, grade, year) {
-    var course = document.getElementById(coursename);
-    var courseval = course.value;
-	var credit = document.getElementById(credit);
-    var creditval = credit.value;
-	var grade = document.getElementById(grade);
-    var gradeval = grade.value;
-	var result = parseFloat(gradeval) * parseFloat(creditval);
-	tempresult += result;
-	
-	var innerSpan = document.getElementById("courses").innerHTML
-	document.getElementById('courses').innerHTML = innerSpan + '<p>' + courseval.toUpperCase() +  '</p>';
-	
-	tempcredit += parseInt(creditval);
-	document.getElementById('total').innerHTML = tempcredit;
-	
-	var totalgrade = tempresult / tempcredit;
-	document.getElementById('grades').innerHTML = totalgrade.toFixed(2);
-}
-</script>
+            <p>Year 1: </p>
+            <div id="gradey1"></div>
+            <p>Year 2: </p>
+            <div id="gradey2"></div>
+            <p>Year 3: </p>
+            <div id="gradey3"></div>
+            <p>Year 4: </p>
+            <div id="gradey4"></div>
           </th>
         </tr>
       </table>
