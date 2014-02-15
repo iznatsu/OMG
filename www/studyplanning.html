@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Oh My GRADE!</title>
+<style type="text/css">
+body {
+	background-color: #FCC;
+}
+</style>
+<link href="ButtonExtra.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="1024" border="0">
+  <tr>
+    <th scope="col"><img src="headergradecal.jpg" alt="headergradecal" width="600" height="300" usemap="#Map" border="0" /></th>
+  </tr>
+  <tr>
+    <th scope="col"><p>Fill the course name and credit below</p></th>
+  </tr>
+  <tr>
+    <th height="10" scope="row"><table width="1024" border="0">
+      <tr>
+        <th width="630" align="center" scope="col"><p>STUDY PLAN</p>
+          <p>Course Name
+            <input type="text" width = "50px" name="a11" id="a11" value="none" />
+            Credit 
+            <input type="text" width = "50px" name="crea11" id="crea11" value="0" />
+            </p>
+          <p>Course Name
+            <input type="text" width = "50px" name="bb11" id="bb11" value="none"/>
+            Credit 
+            <input type="text" width = "50px" name="crebb11" id="crebb11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="b11" id="b11" value="none"/>
+            Credit 
+            <input type="text" width = "50px" name="creb11" id="creb11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="cc11" id="cc11"value="none" />
+            Credit 
+            <input type="text" width = "50px" name="crecc11" id="crecc11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="c11" id="c11"value="none" />
+            Credit 
+            <input type="text" width = "50px" name="crec11" id="crec11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="dd11" id="dd11" value="none"/>
+            Credit 
+            <input type="text" width = "50px" name="credd11" id="credd11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="d11" id="d11" value="none"/>
+            Credit 
+            <input type="text" width = "50px" name="cred11" id="cred11" value="0" /></p>
+          <p>Course Name
+            <input type="text" width = "50px" name="f11" id="f11" value="none"/>
+            Credit 
+            <input type="text" width = "50px" name="cref11" id="cref11" value="0" /></p></th>
+		</tr>
+    </table></th>
+  </tr>
+  <tr>
+    <th height="10" scope="row"><p>Click this button to see your plan</p>
+    <p>
+      <input type="submit" name="submit" id="submit" value="Submit"  onclick="showCredit(crea11,crebb11,creb11,crecc11,crec11,credd11,cred11,cref11)"/></p>
+    </th>
+  </tr>
+  <tr>
+    <th height="10" scope="row">
+            <p>Total credits: </p>
+            <div id="total"></div>
+            
+        
+<script>
+
+ function showCredit(crea11,crebb11,creb11,crecc11,crec11,credd11,cred11,cref11){
+		var credita11 = document.getElementById("crea11");
+		var credita11v = credita11.value;
+		var creditbb11 = document.getElementById("crebb11");
+		var creditbb11v = creditbb11.value;
+		var creditb11 = document.getElementById("creb11");
+		var creditb11v = creditb11.value;
+		var creditcc11 = document.getElementById("crecc11");
+		var creditcc11v = creditcc11.value;
+		var creditc11 = document.getElementById("crec11");
+		var creditc11v = creditc11.value;
+		var creditdd11 = document.getElementById("credd11");
+		var creditdd11v = creditdd11.value;
+		var creditd11 = document.getElementById("cred11");
+		var creditd11v = creditd11.value;
+		var creditf11 = document.getElementById("cref11");
+		var creditf11v = creditf11.value;
+		 var total11 =  parseInt(credita11v) + parseInt(creditbb11v) + parseInt(creditb11v) + parseInt(creditcc11v) + parseInt(creditc11v) + parseInt(creditdd11v) + parseInt(creditd11v) + parseInt(creditf11v);
+ 		document.getElementById("total").innerHTML = total11;
+ }
+ 
+ 		
+		
+		
+</script></th>
+  </tr>
+</table>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="45,214,192,263" href="index.html" />
+</map>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Oh My GRADE!</title>
+<style type="text/css">
+body {
+	background-color: #FCC;
+	
+}
+
+</style>
+</head>
+
+<body>
+<table width="1024" border="0">
+  <tr>
+    <th scope="col"><img src="headergradecal.jpg" alt="headergradecal" width="600" height="300" usemap="#Map" border="0" /></th>
+  </tr>
+  <tr>
+    <th scope="row">
+      <table width="1024" border="0">
+        <tr>
+          <th width="337" align="right" scope="col"><p>&nbsp;</p>
+            <p>Course name : </p>
+            <p>Credit : </p>
+            <p>Grade : </p>
+          <p>&nbsp; </p></th>
+          <th width="225" align="left" scope="col">
+          <p>&nbsp;            </p>
+          <p>
+            <input type="text" name="coursename" id="coursename" />
+          </p>
+            <p>
+              <input type="text" name="credit" id="credit" />
+            </p>
+            <p>
+              <label for="grade"></label>
+              <input type="text" name="grade" id="grade" />
+            </p>
+            <p>
+              <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade')" />
+            </p>
+          </th>
+          <th width="448" align="left" valign="middle" scope="col"><h1>All courses</h1>
+            <div id="courses"></div>
+            <p>Total credits: </p>
+            <div id="total"></div>
+            <p>Total grade: </p>
+            <div id="grades"></div>
+        
+<script>
+var tempcredit = 0;
+var tempresult = 0;
+
+function retrieve(coursename, credit, grade) {
+    var course = document.getElementById(coursename);
+    var courseval = course.value;
+	var credit = document.getElementById(credit);
+    var creditval = credit.value;
+	var grade = document.getElementById(grade);
+    var gradeval = grade.value;
+	var result = parseFloat(gradeval) * parseFloat(creditval);
+	tempresult += result;
+	
+	var innerSpan = document.getElementById("courses").innerHTML
+	document.getElementById('courses').innerHTML = innerSpan + '<p>' + courseval.toUpperCase() +  '</p>';
+	
+	tempcredit += parseInt(creditval);
+	document.getElementById('total').innerHTML = tempcredit;
+	
+	var totalgrade = tempresult / tempcredit;
+	document.getElementById('grades').innerHTML = totalgrade.toFixed(2);
+}
+</script>
+          </th>
+        </tr>
+      </table>
+    </th>
+  </tr>
+</table>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="44,215,191,264" href="index.html" />
+</map>
+</body>
+</html>
