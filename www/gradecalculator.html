@@ -31,6 +31,12 @@ var credity4 = 0;
 var resulty4 = 0;
 var gradey4 = parseFloat(0);
 
+var mygrade = new Array();
+mygrade[0] = parseFloat(gradey1);
+mygrade[1] = parseFloat(gradey2);
+mygrade[2] = parseFloat(gradey3);
+mygrade[3] = parseFloat(gradey4);
+
 function retrieve(coursename, credit, grade, year) {
     var course = document.getElementById(coursename);
     var courseval = course.value;
@@ -77,8 +83,38 @@ function retrieve(coursename, credit, grade, year) {
 	document.getElementById('gradey2').innerHTML = gradey2.toFixed(2);
 	document.getElementById('gradey3').innerHTML = gradey3.toFixed(2);
 	document.getElementById('gradey4').innerHTML = gradey4.toFixed(2);
+	
+	mygrade[0] = parseFloat(gradey1);
+	mygrade[1] = parseFloat(gradey2);
+	mygrade[2] = parseFloat(gradey3);
+	mygrade[3] = parseFloat(gradey4);
+	
+	drawChart(mygrade);
 }
 </script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart(mygrade) {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Grade'],
+          ['1st year',  parseFloat(mygrade[0])],
+          ['2nd year',  parseFloat(mygrade[1])],
+          ['3rd year',  parseFloat(mygrade[2])],
+          ['4th year',  parseFloat(mygrade[3])]
+        ]);
+
+        var options = {
+          title: 'Your grade',
+          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 
 <body>
@@ -90,7 +126,7 @@ function retrieve(coursename, credit, grade, year) {
     <th scope="row">
       <table width="1024" border="0">
         <tr>
-          <th width="439" align="right" scope="col"><p>&nbsp;</p>
+          <th width="376" align="right" scope="col"><p>&nbsp;</p>
             <p>Course name : 
               <input type="text" name="coursename" id="coursename" />
             </p>
@@ -106,7 +142,7 @@ function retrieve(coursename, credit, grade, year) {
           <p>
             <input type="submit" name="sendgrade" id="sendgrade" value="submit" onclick="retrieve('coursename', 'credit', 'grade', 'year')" />
           </p></th>
-          <th width="575" align="center" scope="col">
+          <th width="308" align="center" scope="col">
             <h1>All courses</h1>
             <div id="courses"></div>
             <p>Total credits: </p>
@@ -121,6 +157,9 @@ function retrieve(coursename, credit, grade, year) {
             <div id="gradey3"></div>
             <p>Year 4: </p>
             <div id="gradey4"></div>
+          </th>
+          <th width="326" align="center" scope="col">
+          <div id="chart_div" style="width: 450px; height: 250px;">
           </th>
         </tr>
       </table>
